@@ -2,26 +2,108 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply bg-slate-950 text-slate-100;
+}
+
+a {
+  @apply underline;
+}
+
+.img-cont img {
+  @apply w-full h-full object-cover;
+}
+
+.cta {
+  @apply p-3 px-6 border border-slate-800 text-slate-100;
+}
+
+.site-header {
+  @apply sticky top-0 !py-6 border-b border-slate-600/20 backdrop-blur-2xl bg-clip-padding;
+}
+
+.site-section {
+  @apply p-4;
+}
+
+.site-section > .wrapper {
+  @apply max-w-5xl mx-auto;
+}
+
+.section-header {
+  @apply mb-4;
+}
+
+.blog-page-card {
+  @apply flex flex-col justify-between p-4 h-full border border-slate-800;
+}
+
+.blog-page-card > .wrapper {
+  @apply flex flex-col gap-4 mb-4;
+}
+
+.blog-page-card__title {
+  @apply text-2xl;
+}
+
+.blog-page-card__image {
+  @apply h-64;
+}
+
+.blog-page-card__content {
+  @apply flex flex-col gap-4;
+}
+
+/* INDEX PAGE */
+.pages-list {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* BLOG PAGE */
+
+.article-body {
+  @apply flex flex-col gap-6;
+}
+
+.content-block {
+  @apply prose prose-invert max-w-4xl m-auto;
+}
+
+.products-block {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.product-card {
+  @apply flex flex-col gap-2 h-full p-4 border border-slate-800;
+}
+
+.product-card__img-cont {
+  @apply h-64;
+}
+
+.cta-block {
+  @apply flex flex-col gap-1 p-4 border border-slate-800;
+}
+
+.cta-block__header {
+  @apply mb-4;
+}
+
+.cta-block__caption {
+  @apply text-3xl;
+}
+
+.read-more-block {
+  @apply py-6;
+}
+
+.read-more-block__header {
+  @apply mb-4;
+}
+
+.read-more-block__list {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
