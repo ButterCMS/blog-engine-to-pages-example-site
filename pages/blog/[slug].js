@@ -5,6 +5,7 @@ import CTABlock from "@/components/blocks/CTABlock";
 import ContentBlock from "@/components/blocks/ContentBlock";
 import ProductsBlock from "@/components/blocks/ProductsBlock";
 import ReadMoreBlock from "@/components/blocks/ReadMoreBlock";
+import Link from "next/link";
 
 export const getServerSideProps = async ({ params: { slug } }) => {
   try {
@@ -26,6 +27,9 @@ export const getServerSideProps = async ({ params: { slug } }) => {
 };
 
 const BlogPage = ({ blogPage }) => {
+  console.log({
+    blogPage,
+  });
   if (!blogPage) {
     return (
       <>
@@ -102,12 +106,22 @@ const BlogPage = ({ blogPage }) => {
                 alt={blogPage.fields.blog_seo.og_image_alt}
               />
             </figure>
+            <ul className="article-hero__tag-list">
+              {blogPage.fields?.tags?.length > 0 &&
+                blogPage.fields?.tags.map((tag) => (
+                  <li key={tag.meta?.id} className="article-hero__tag-item">
+                    <Link href={`/blog/tags/${tag.slug}`}>{tag.name}</Link>
+                  </li>
+                ))}
+            </ul>
             <p>{blogPage.fields.summary}</p>
             <time dateTime={blogPage.fields.publish_date}>
               {new Date(blogPage.fields.publish_date).toLocaleDateString()}
             </time>
             <address>
-              <p>By {blogPage.fields.author.name}</p>
+              <Link href={`/blog/author/${blogPage.fields.author.slug}`}>
+                <p>By {blogPage.fields.author.name}</p>
+              </Link>
             </address>
           </div>
         </header>
