@@ -19,7 +19,15 @@ a {
 }
 
 .site-header {
-  @apply sticky top-0 !py-6 border-b border-slate-600/20 backdrop-blur-2xl bg-clip-padding;
+  @apply sticky top-0  !py-6 border-b border-slate-600/20 backdrop-blur-2xl bg-clip-padding;
+}
+
+.site-header > .wrapper {
+  @apply flex justify-between items-center gap-4;
+}
+
+.site-nav__list {
+  @apply flex gap-4;
 }
 
 .site-section {

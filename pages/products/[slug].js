@@ -54,6 +54,32 @@ const ProductPage = ({ productPage }) => {
   return (
     <>
       {/* Page meta */}
+      <Head>
+        <title>{productPage.fields.name}</title>
+        <meta name="description" content={productPage.fields.description} />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={productPage.fields.name} />
+        <meta
+          property="og:description"
+          content={productPage.fields.description}
+        />
+        <meta property="og:image" content={productPage.fields.image} />
+        <meta property="og:url" content={productPage.fields.slug} />
+        <meta property="og:type" content="article" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@buttercms" />
+        <meta name="twitter:title" content={productPage.fields.name} />
+        <meta
+          name="twitter:description"
+          content={productPage.fields.description}
+        />
+        <meta name="twitter:image" content={productPage.fields.image} />
+      </Head>
+
+      {/* Page content */}
       <main className="article site-main">
         <header className="article-hero site-hero site-section !pb-12 my-12 border-b border-slate-800">
           <div className="wrapper flex flex-col gap-4 ">
