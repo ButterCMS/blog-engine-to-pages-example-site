@@ -110,7 +110,7 @@ const BlogPage = ({ blogPage }) => {
               {blogPage.fields?.tags?.length > 0 &&
                 blogPage.fields?.tags.map((tag) => (
                   <li key={tag.meta?.id} className="article-hero__tag-item">
-                    <Link href={`/blog/tags/${tag.slug}`}>{tag.name}</Link>
+                    <Link href={`/blog/tags?tags=${tag.slug}`}>{tag.name}</Link>
                   </li>
                 ))}
             </ul>

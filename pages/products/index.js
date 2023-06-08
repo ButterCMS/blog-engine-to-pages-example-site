@@ -26,7 +26,7 @@ export default function Products({ productPages }) {
   return (
     <main className="site-main">
       <header className="site-hero site-section">
-        <div className="wrapper py-32">
+        <div className="wrapper">
           <h1 className="text-3xl">LuminaClick Products</h1>
           <p>
             You've arrived at your go-to destination for high-quality computer

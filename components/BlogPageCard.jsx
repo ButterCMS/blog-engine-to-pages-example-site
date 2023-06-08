@@ -19,18 +19,28 @@ const BlogPageCard = ({ blogPage }) => {
             blogPage.fields?.tags.map((tag) => {
               return (
                 <li key={tag.meta?.id} className="blog-page-card__tag-item">
-                  <Link href={`/blog/tags/${tag.slug}`}>{tag.name}</Link>
+                  <Link href={`/blog/tags?tags=${tag.slug}`}>{tag.name}</Link>
                 </li>
               );
             })}
         </ul>
 
         <div className="blog-page-card__content">
-          <address>
-            <Link href={`/blog/author/${blogPage.fields.author.slug}`}>
-              <p>By {blogPage.fields.author.name}</p>
-            </Link>
-          </address>
+          <div className="flex flex-wrap gap-4">
+            <address>
+              <Link href={`/blog/author/${blogPage.fields.author.slug}`}>
+                <p>By {blogPage.fields.author.name}</p>
+              </Link>
+            </address>
+            <p>
+              In{" "}
+              <Link
+                href={`/blog/category/${blogPage.fields.categories[0].slug}`}
+              >
+                {blogPage.fields.categories[0].name}
+              </Link>
+            </p>
+          </div>
           <p className="blog-page-card__date">
             {new Date(blogPage.fields.publish_date).toLocaleDateString()}
           </p>

@@ -76,6 +76,12 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
 }
 
+@media screen and (min-width: 768px) {
+  .pages-list {
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 0.5fr));
+  }
+}
+
 /* BLOG PAGE */
 
 .article-hero__tag-list {

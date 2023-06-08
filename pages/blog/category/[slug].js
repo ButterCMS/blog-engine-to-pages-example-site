@@ -1,21 +1,23 @@
 import BlogPageCard from "@/components/BlogPageCard";
 import {
-  getAllCustomBlogPages,
   getCollectionBySlug,
-  getCustomBlogPagesByTag,
+  getCustomBlogPagesByCollectionSlug,
 } from "@/lib/api";
 
 // function to get all custom blog pages server side
 export const getServerSideProps = async ({ params }) => {
   try {
-    const blogPages = await getCustomBlogPagesByTag(params.slug);
-    const tag = await getCollectionBySlug("blog_tag", params.slug);
+    const blogPages = await getCustomBlogPagesByCollectionSlug(
+      params.slug,
+      "categories"
+    );
+    const category = await getCollectionBySlug("blog_category", params.slug);
 
     return {
       props: {
         blogPages,
         slug: params.slug,
-        tag: tag.data.blog_tag[0],
+        category: category.data.blog_category[0],
       },
     };
   } catch (error) {
@@ -24,18 +26,20 @@ export const getServerSideProps = async ({ params }) => {
       props: {
         blogPages: null,
         slug: params.slug,
-        tag: null,
+        category: null,
       },
     };
   }
 };
 
-export default function TagArticles({ blogPages, tag, slug }) {
+export default function CategoryArticles({ blogPages, category, slug }) {
+  console.log({ blogPages, category });
+
   return (
     <main className="site-main">
       <header className="site-hero site-section">
-        <div className="wrapper py-32">
-          <h1 className="text-3xl">Tag: {tag.name}</h1>
+        <div className="wrapper">
+          <h1 className="text-3xl">Category: {category.name}</h1>
         </div>
       </header>
       <section className="site-section blog-pages-section">
@@ -46,8 +50,8 @@ export default function TagArticles({ blogPages, tag, slug }) {
                 <div className="wrapper">
                   <h2>Popular results</h2>
                   <p>
-                    Browse through all of our blog posts with the tag "
-                    {tag.name}"
+                    Browse through all of our blog posts in the {category.name}{" "}
+                    category
                   </p>
                 </div>
               </header>
