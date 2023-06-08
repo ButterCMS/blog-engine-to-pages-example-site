@@ -1,5 +1,6 @@
 import BlogPageCard from "@/components/BlogPageCard";
 import { getAllCustomBlogPages } from "@/lib/api";
+import Head from "next/head";
 
 // function to get all custom blog pages server side
 export const getServerSideProps = async () => {
@@ -23,6 +24,11 @@ export const getServerSideProps = async () => {
 
 export default function Home({ blogPages }) {
   return (
+    <>
+    <Head>
+      <title>LuminaClick - Home</title>
+      <meta name="description" content="LuminaClick - Home" />
+    </Head>
     <main className="site-main">
       <header className="site-hero site-section">
         <div className="wrapper py-32">
@@ -60,5 +66,6 @@ export default function Home({ blogPages }) {
         </div>
       </section>
     </main>
+    </>
   );
 }
