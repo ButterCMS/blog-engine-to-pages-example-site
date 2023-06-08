@@ -30,6 +30,10 @@ a {
   @apply flex gap-4;
 }
 
+.site-hero > .wrapper {
+  @apply py-12;
+}
+
 .site-section {
   @apply p-4 py-12;
 }
