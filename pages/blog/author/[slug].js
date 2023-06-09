@@ -1,11 +1,5 @@
 import BlogPageCard from "@/components/BlogPageCard";
-import {
-  getAllCustomBlogPages,
-  getAuthorsBySlug,
-  getCollectionBySlug,
-  getCustomBlogPagesByAuthor,
-  getCustomBlogPagesByTag,
-} from "@/lib/api";
+import { getCollectionBySlug, getCustomBlogPagesByAuthor } from "@/lib/api";
 import Head from "next/head";
 
 // function to get custom blog pages server side
@@ -34,10 +28,11 @@ export const getServerSideProps = async ({ params }) => {
 };
 
 export default function AuthorArticles({ blogPages, author, slug }) {
+  console.log({ blogPages, author, slug });
   return (
     <>
       <Head>
-        <title>Author: {author.name}</title>
+        <title>{`Author: ${author.name}`}</title>
         <meta
           name="description"
           content={`Browse through all of our blog posts from ${author.name}`}
@@ -46,7 +41,7 @@ export default function AuthorArticles({ blogPages, author, slug }) {
       <main className="site-main">
         <header className="site-hero site-section">
           <div className="wrapper">
-            <h1 className="text-3xl">Articles from {author.name}</h1>
+            <h1 className="text-3xl">{`Articles from ${author.name}`}</h1>
           </div>
         </header>
         <section className="site-section blog-pages-section">
@@ -57,8 +52,9 @@ export default function AuthorArticles({ blogPages, author, slug }) {
                   <div className="wrapper">
                     <h2>Popular results</h2>
                     <p>
-                      Browse through all of our blog posts from{" "}
-                      {author.name.split(" ")[0]}
+                      {` Browse through all of our blog posts from ${
+                        author.name.split(" ")[0]
+                      }`}
                     </p>
                   </div>
                 </header>

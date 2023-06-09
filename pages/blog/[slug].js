@@ -92,7 +92,7 @@ const BlogPage = ({ blogPage }) => {
         />
       </Head>
       <main className="article site-main">
-        <header className="article-hero site-hero site-section !pb-12 my-12 border-b border-slate-800">
+        <header className="article-hero site-hero site-section !pb-12 border-b border-slate-800">
           <div className="wrapper flex flex-col gap-4 ">
             <h1 className="article-hero__title text-5xl mb-4">
               {blogPage.fields.title}
@@ -118,11 +118,21 @@ const BlogPage = ({ blogPage }) => {
             <time dateTime={blogPage.fields.publish_date}>
               {new Date(blogPage.fields.publish_date).toLocaleDateString()}
             </time>
-            <address>
-              <Link href={`/blog/author/${blogPage.fields.author.slug}`}>
-                <p>By {blogPage.fields.author.name}</p>
-              </Link>
-            </address>
+            <div className="flex flex-wrap gap-4">
+              <address>
+                <Link href={`/blog/author/${blogPage.fields.author.slug}`}>
+                  <p>By {blogPage.fields.author.name}</p>
+                </Link>
+              </address>
+              <p>
+                In{" "}
+                <Link
+                  href={`/blog/category/${blogPage.fields.categories[0].slug}`}
+                >
+                  {blogPage.fields.categories[0].name}
+                </Link>
+              </p>
+            </div>
           </div>
         </header>
         <section className="site-section">
