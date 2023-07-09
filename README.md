@@ -1,8 +1,24 @@
+# blog-engine-to-pages-example-site
+Migrate from Blog Engine to Pages Example Site
+
+This repository contains a Next.js site that demonstrates how to display content from a custom blog pages type in ButterCMS.
+It also has a `/migrate` page that demonstrates how to migrate content from a custom blog engine to ButterCMS with Next.js API routes.
+
+> Developed by [Miracle Onyenma](https://www.linkedin.com/in/miracleio/) for ButterCMS.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Create a `.env` file with the following contents:
+
+```bash
+BUTTERCMS_WRITE_TOKEN=enter_your_write_token
+BUTTERCMS_READ_TOKEN=enter_your_read_token
+BUTTERCMS_API_URL=https://api.buttercms.com/v2
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
