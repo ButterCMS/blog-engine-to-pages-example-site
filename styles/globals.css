@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-slate-950 text-slate-100;
+}
+
+a {
+  @apply underline;
+}
+
+.img-cont img {
+  @apply w-full h-full object-cover;
+}
+
+.cta {
+  @apply p-3 px-6 border border-slate-800 text-slate-100;
+}
+
+.site-header {
+  @apply sticky top-0  !py-6 border-b border-slate-600/20 backdrop-blur-2xl bg-clip-padding;
+}
+
+.site-header > .wrapper {
+  @apply flex justify-between items-center gap-4;
+}
+
+.site-nav__list {
+  @apply flex gap-4;
+}
+
+.site-hero > .wrapper {
+  @apply py-12;
+}
+
+.site-section {
+  @apply p-4 py-12;
+}
+
+.site-section > .wrapper {
+  @apply max-w-5xl mx-auto;
+}
+
+.section-header {
+  @apply mb-8;
+}
+
+.blog-pages-section > .wrapper {
+  @apply max-w-7xl;
+}
+
+.blog-page-card {
+  @apply flex flex-col justify-between p-4 h-full border border-slate-800;
+}
+
+.blog-page-card > .wrapper {
+  @apply flex flex-col gap-4 mb-4;
+}
+
+.blog-page-card__title {
+  @apply text-2xl;
+}
+
+.blog-page-card__image {
+  @apply h-64;
+}
+
+.blog-page-card__tag-list {
+  @apply flex flex-wrap gap-1;
+}
+
+.blog-page-card__content {
+  @apply flex flex-col gap-4;
+}
+
+/* INDEX PAGE */
+.pages-list {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+
+@media screen and (min-width: 768px) {
+  .pages-list {
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 0.5fr));
+  }
+}
+
+/* BLOG PAGE */
+
+.article-hero__tag-list {
+  @apply flex flex-wrap gap-4;
+}
+
+.article-hero__tag-item,
+.blog-page-card__tag-item {
+  @apply p-1 px-3 border border-slate-600;
+}
+
+.article-body {
+  @apply flex flex-col gap-6;
+}
+
+.content-block {
+  @apply prose prose-invert max-w-4xl m-auto;
+}
+
+.products-block {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.product-card {
+  @apply flex flex-col gap-2 h-full p-4 border border-slate-800;
+}
+
+.product-card__img-cont {
+  @apply h-64;
+}
+
+.cta-block {
+  @apply flex flex-col gap-1 p-4 border border-slate-800;
+}
+
+.cta-block__header {
+  @apply mb-4;
+}
+
+.cta-block__caption {
+  @apply text-3xl;
+}
+
+.read-more-block {
+  @apply py-6;
+}
+
+.read-more-block__header {
+  @apply mb-4;
+}
+
+.read-more-block__list {
+  @apply grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* PRODUCT PAGE */
+.specifications-list,
+.features-list {
+  @apply flex gap-4;
+}
+
+.specifications-list > li,
+.features-list > li {
+  @apply flex-1;
+}
+/* END PRODUCT PAGE */
